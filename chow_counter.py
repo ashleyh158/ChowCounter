@@ -267,8 +267,8 @@ database = query_all(cnx, CMD)
 ingredient_DB = create_dict(pull_element(database, 0), pull_element(database, 1))
 
 #Load up some refrence lists for stop words and units.
-stop_words = read_file(r'txt_files\stop_words.txt')
-units = read_file(r'txt_files\units.txt')
+stop_words = read_file(r'stop_words.txt')
+units = read_file(r'units.txt')
 
 #Do some formatting for the units. We want refrence units, standard units,
 #and the factor to be three seperate lists. Make a dictionary as well.
@@ -453,7 +453,7 @@ for i, element in reversed(list(enumerate(usda_id))):
 
 #Sum up the nutrients for each ingredient. Save it in a dictionary along with
 #the nutrient name and RDI.
-nutrient_names = read_file(r'txt_files\nutrient_names.txt')
+nutrient_names = read_file(r'nutrient_names.txt')
 nutrient_values = [0] * len(nutrient_names)
 nutrient_dict_individul = []
 for i, element in enumerate(usda_id):

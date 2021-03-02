@@ -1,0 +1,48 @@
+Calories
+Protein
+Fat
+Carbohydrates
+Fiber
+Sugars
+Calcium
+Iron
+Magnesium
+Phosphorus
+Potassium
+Sodium
+Zinc
+Copper
+Manganese
+Selenium
+Vitamin C
+Thiamin
+Riboflavin
+Niacin
+Pantothenic acid
+Vitamin B6
+Folate
+Vitamin B-12
+Vitamin A, RAE
+Vitamin E
+Vitamin D
+Vitamin K
+Choline
+Saturated Fatty acids
+Monounsaturated Fatty acids
+Polyunsaturated Fatty acids
+Omega 3 Fatty Acids, ALA
+Omega 3 Fatty Acids, EPA
+Omega 3 Fatty Acids, DHA
+Trans Fat
+Cholesterol
+Tryptophan
+Threonine
+Isoleucine
+Leucine
+Lysine
+Valine
+Histidine
+Methionine
+Cystine
+Phenylalanine
+Tyrosine
