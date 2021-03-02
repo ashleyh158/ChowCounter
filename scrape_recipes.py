@@ -10,6 +10,13 @@ import mysql.connector
 from mysql.connector import Error
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from selenium import webdriver
+import os
+
+def set_dir():
+    """sets the working directory to wherever this file is"""
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
 
 def create_server_connection(host_name, user_name, user_password):
     """Creates and returns the connection to the SQL server"""
@@ -214,6 +221,8 @@ def eval_complex_list(input_list):
     return output
 
 ################## Seb Scraping and SQL Section ##########################
+set_dir()
+
 #Opens window for user input, saves input as url.
 url_root = tk.Tk()
 url_var = tk.StringVar()
@@ -234,8 +243,8 @@ content = scrape_url(url)
 #Save the ingredients list as ingredients_raw.
 #Depending on the recipe, Allrecipes will have one of two possible styles of source code.
 #So we have a list of two possible patterns.
-ingredients_pattern = ['''<span class=\"recipe-ingred_txt added\" data-id=\"\d*\" data-
-                       nameid=\"\d*\" itemprop=\"recipeIngredient\">(.*?)</span>''']
+ingredients_pattern = ["<span class=\"recipe-ingred_txt added\" data-id=\"0\""
+                       +" data-nameid=\"0\" itemprop=\"recipeIngredient\">(.*?)</span>"]
 ingredients_pattern.append('''"ingredients-item-name">. *(.*?). *<''')
 
 if content[16:21] == 'class':
@@ -258,8 +267,8 @@ database = query_all(cnx, CMD)
 ingredient_DB = create_dict(pull_element(database, 0), pull_element(database, 1))
 
 #Load up some refrence lists for stop words and units.
-stop_words = read_file('Stop_Words.txt')
-units = read_file('Units.txt')
+stop_words = read_file('txt_files\stop_words.txt')
+units = read_file('txt_files\units.txt')
 
 #Do some formatting for the units. We want refrence units, standard units,
 #and the factor to be three seperate lists. Make a dictionary as well.
@@ -444,7 +453,7 @@ for i, element in reversed(list(enumerate(usda_id))):
 
 #Sum up the nutrients for each ingredient. Save it in a dictionary along with
 #the nutrient name and RDI.
-nutrient_names = read_file(r'..\Chow Counter\Nutrient_Names.txt')
+nutrient_names = read_file(r'txt_files\nutrient_names.txt')
 nutrient_values = [0] * len(nutrient_names)
 nutrient_dict_individul = []
 for i, element in enumerate(usda_id):
