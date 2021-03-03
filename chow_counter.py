@@ -467,6 +467,7 @@ for i, element in enumerate(usda_id):
     nutrient_dict_individul.append([ingred_names[i], temp])
 
 nutrient_dict = create_dict(nutrient_names, nutrient_values)
+cnx.close()
 
 #Calories are reported in joules. Change it to calories 'cause 'Merica.
 temp = nutrient_dict['Calories']*0.239
